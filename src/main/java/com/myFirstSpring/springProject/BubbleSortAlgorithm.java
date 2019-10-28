@@ -1,9 +1,7 @@
 package com.myFirstSpring.springProject;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 //bean
-@Primary
 @Component
 public class BubbleSortAlgorithm implements SortAlgorithm{
 	
