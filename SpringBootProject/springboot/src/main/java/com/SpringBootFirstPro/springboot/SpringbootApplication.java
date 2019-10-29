@@ -11,7 +11,7 @@ public class SpringbootApplication {
 		ApplicationContext applicationContext =  
 				SpringApplication.run(SpringbootApplication.class, args);
 		
-		//gets all names of beans in the applicationcontext
+		//gets all names of beans in the application context
 		for (String name : applicationContext.getBeanDefinitionNames()) {
 			System.out.println(name);
 		}

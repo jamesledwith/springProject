@@ -12,7 +12,9 @@ public class BooksController {
 		public List<Book> getAllBooks()
 	{
 		Book book1 = new Book(1l,"Harry Potter","J.K Rowling");
-			return Arrays.asList(book1);
+		Book book2 = new Book(2l,"Why We Sleep","Alan Walker");
+		Book book3 = new Book(3l,"Moby Dick","Hmmm");
+			return Arrays.asList(book1, book2, book3);
 	}
 }
 	
