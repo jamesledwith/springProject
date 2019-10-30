@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://soap.com/webservices" 
+xmlns:tns="http://soap.com/webservices" elementFormDefault="qualified">
+	<element name="GetCourseDetailsRequest">
+		<complexType>
+			<sequence>
+				<element name="id" type="integer"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>
+
+<!-- 
+<GetCourseDetailsRequest xmlns="http://soap.com/webservices">
+	<id>1</id>
+</GetCourseDetailsRequest> 
+-->

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GetCourseDetailsResponse xmlns="http://soap.com/webservices">
+	<CourseDetails>
+		<id>1</id>
+		<name>Soap</name>
+		<description>Show the basics of soap</description>
+	</CourseDetails>
+</GetCourseDetailsResponse>
