@@ -8,6 +8,10 @@ public class User {
 	private String name;
 	private Date birthdate;
 	
+	protected User() {
+		
+	}
+	
 	@Override
 	public String toString() {
 		return String.format("User [id=%s, name=%s, birthdate=%s]", id, name, birthdate);
