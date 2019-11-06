@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,17 +18,14 @@ public class UserResource {
 
 	@Autowired
 	private UserDaoService service;
+
 	
-	//GET /users
-	//retrieveAllUsers
-	@GetMapping("/users")
+	@GetMapping("/users")					//retrieveAllUsers --  GET /users
 	public List<User> retrieveAllUsers(){
-		return service.findAll();
-		
+		return service.findAll();	
 	}
 	
-	//GET /users/{id}
-	@GetMapping("/users/{id}")
+	@GetMapping("/users/{id}")							//find user  -- GET /users/{id}
 	public User retrieveUser(@PathVariable int id){
 		User user = service.findOne(id);
 		
@@ -37,18 +35,24 @@ public class UserResource {
 		return service.findOne(id);
 	}
 	
-	//input - details of user
-	//output - CREATED & Return the created URI
-	@PostMapping("/users")
-	public ResponseEntity<Object> createUser(@RequestBody User user) {
-		User savedUser = service.save(user);
+	@DeleteMapping("/users/{id}")							//find user  -- GET /users/{id}
+	public void deleteUser(@PathVariable int id){
+		User user = service.deleteById(id);
 		
-		//  /user/{id}   savedUser.getId()
-		URI location = ServletUriComponentsBuilder
+		if(user == null) {
+			throw new UserNotFoundException("id - " + id);
+		}
+	}
+	
+	@PostMapping("/users")								//output - CREATED & Return the created URI -- input - details of user
+	public ResponseEntity<Object> createUser(@RequestBody User user) {
+		User savedUser = service.save(user);	
+		URI location = ServletUriComponentsBuilder	//  /user/{id}   savedUser.getId()
 		.fromCurrentRequest()
 		.path("/{id}")
-		.buildAndExpand(savedUser.getId()).toUri();
-		
+		.buildAndExpand(savedUser.getId()).toUri();	
 		return ResponseEntity.created(location).build();
 	}
+	
+	
 }
