@@ -15,6 +15,11 @@ public class HelloWorldController {
 		return "Hello World! whats up?";
 	}
 	
+	@GetMapping(path = "/hello-world-internationalized")
+	public String helloWorldInternationalized() {
+		return "Good Morning";
+	}
+	
 	@GetMapping(path = "/hello-world-bean")
 	public HelloWorldBean helloWorldBean() {
 		return new HelloWorldBean ("Hello World! whats up?");
